@@ -2,10 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Painel WhatsApp · Download</title>
 <meta name="description" content="Os 5 números de WhatsApp da empresa em uma única tela de atendimento. Baixe para Windows ou Mac e veja como instalar e usar.">
 <link rel="icon" type="image/png" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<meta name="theme-color" content="#fbfbfd" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="RankX Digital">
 <meta property="og:title" content="Painel WhatsApp · Download">
@@ -18,273 +21,564 @@
 <meta property="og:image:alt" content="Painel WhatsApp: 5 números em uma única tela, desenvolvido por RankX Digital">
 <meta property="og:locale" content="pt_BR">
 <meta name="twitter:card" content="summary_large_image">
-</head>
-<body>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
 <style>
   :root {
-    --fundo: #f7f9f8;
-    --papel: #ffffff;
-    --tinta: #14211d;
-    --suave: #5b6b65;
-    --linha: #dde4e0;
-    --acento: #0e6b55;
-    --acento-fundo: #e5f2ed;
-    --aviso: #9a5b0c;
-    --aviso-fundo: #fbf1e1;
-    --codigo-fundo: #eef2f0;
+    --fundo: #fbfbfd;
+    --fundo-2: #f5f5f7;
+    --cartao: #ffffff;
+    --texto: #1d1d1f;
+    --suave: #6e6e73;
+    --linha: #d2d2d7;
+    --acento: #0a7d63;
+    --acento-forte: #07614c;
+    --verde: #25d366;
+    --escuro: #000000;
+    --escuro-texto: #f5f5f7;
+    --escuro-suave: #a1a1a6;
+    --vidro: rgba(251, 251, 253, 0.72);
+    --sombra: 0 30px 80px -20px rgba(0, 0, 0, 0.28), 0 10px 30px -10px rgba(0, 0, 0, 0.18);
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --fundo: #0f1714; --papel: #16211d; --tinta: #e6ede9; --suave: #9aaba4;
-      --linha: #2a3833; --acento: #5fd3ae; --acento-fundo: #173a30;
-      --aviso: #f0b866; --aviso-fundo: #35291a; --codigo-fundo: #1f2c27;
+    :root {
+      --fundo: #000000; --fundo-2: #101012; --cartao: #1c1c1e; --texto: #f5f5f7;
+      --suave: #a1a1a6; --linha: #38383a; --acento: #34d399; --acento-forte: #6ee7b7;
+      --escuro: #101012; --vidro: rgba(0, 0, 0, 0.68);
+      --sombra: 0 30px 80px -20px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255,255,255,0.08);
       color-scheme: dark;
     }
   }
-  :root[data-theme="dark"] {
-    --fundo: #0f1714; --papel: #16211d; --tinta: #e6ede9; --suave: #9aaba4;
-    --linha: #2a3833; --acento: #5fd3ae; --acento-fundo: #173a30;
-    --aviso: #f0b866; --aviso-fundo: #35291a; --codigo-fundo: #1f2c27;
-    color-scheme: dark;
-  }
 
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     background: var(--fundo);
-    color: var(--tinta);
-    font: 16px/1.6 Figtree, -apple-system, "Segoe UI", sans-serif;
-    padding-inline: 20px;
-    padding-block: 48px 72px;
+    color: var(--texto);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.47;
+    letter-spacing: -0.022em;
+    -webkit-font-smoothing: antialiased;
   }
-  .pagina { max-width: 760px; margin: 0 auto; }
+  a { color: var(--acento); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  :focus-visible { outline: 3px solid var(--acento); outline-offset: 3px; border-radius: 6px; }
+  img { max-width: 100%; }
 
-  h1, h2, h3 { font-family: "Bricolage Grotesque", Figtree, sans-serif; text-wrap: balance; line-height: 1.15; }
-  h1 { font-size: clamp(32px, 6vw, 46px); margin: 0 0 12px; letter-spacing: -0.02em; }
-  h2 { font-size: 26px; margin: 56px 0 16px; padding-top: 24px; border-top: 1px solid var(--linha); }
-  h3 { font-size: 18px; margin: 28px 0 8px; }
-  p { margin: 0 0 14px; max-width: 65ch; }
-  .rotulo {
-    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--acento); margin-bottom: 10px;
+  .conteiner { max-width: 1080px; margin: 0 auto; padding-inline: 22px; }
+
+  /* Navegação */
+  .nav {
+    position: sticky; top: 0; z-index: 10;
+    background: var(--vidro);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid color-mix(in srgb, var(--linha) 60%, transparent);
+    padding-top: env(safe-area-inset-top, 0px);
   }
-  .lead { font-size: 19px; color: var(--suave); }
+  .nav .conteiner { height: 52px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .nav-marca { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 19px; color: var(--texto); }
+  .nav-marca:hover { text-decoration: none; }
+  .nav-marca img { width: 28px; height: 28px; }
+  .nav-links { display: flex; align-items: center; gap: 26px; font-size: 13px; }
+  .nav-links a { color: var(--texto); opacity: 0.8; }
+  .nav-links a:hover { opacity: 1; text-decoration: none; }
+  .nav-links .pilula { opacity: 1; }
 
-  .fatos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 28px 0 0; }
-  .fato { background: var(--papel); border: 1px solid var(--linha); border-radius: 10px; padding: 14px 16px; }
-  .fato b { display: block; font-size: 13px; color: var(--suave); font-weight: 600; margin-bottom: 2px; }
+  .pilula {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--acento); color: #fff; border-radius: 980px;
+    padding: 6px 14px; font-size: 13px; font-weight: 500;
+  }
+  @media (prefers-color-scheme: dark) { .pilula { color: #04130e; } }
+  .pilula:hover { text-decoration: none; filter: brightness(1.08); }
 
-  .sistemas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
-  .sistema { background: var(--papel); border: 1px solid var(--linha); border-radius: 12px; padding: 20px 22px; }
-  .sistema h3 { margin-top: 0; }
-  .arquivo { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; background: var(--codigo-fundo); padding: 2px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+  /* Hero */
+  .hero { text-align: center; padding-top: 80px; }
+  .hero-icone { width: 92px; height: 92px; margin: 0 auto 18px; display: block; filter: drop-shadow(0 12px 24px rgba(10,125,99,0.3)); }
+  .sobretitulo { font-size: 21px; font-weight: 600; color: var(--acento); margin: 0 0 6px; letter-spacing: -0.01em; }
+  h1 {
+    font-size: clamp(48px, 9vw, 96px); line-height: 1.02; font-weight: 700;
+    letter-spacing: -0.045em; margin: 0 auto; max-width: 11ch; text-wrap: balance;
+  }
+  .hero-sub {
+    font-size: clamp(20px, 2.6vw, 28px); line-height: 1.25; color: var(--suave);
+    max-width: 30ch; margin: 22px auto 0; font-weight: 500; letter-spacing: -0.02em; text-wrap: balance;
+  }
+  .botoes { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    border-radius: 980px; padding: 14px 26px; font-size: 17px; font-weight: 500;
+    transition: transform .2s ease, filter .2s ease;
+  }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn-cheio { background: var(--acento); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn-cheio { color: #04130e; } }
+  .btn-cheio:hover { filter: brightness(1.08); }
+  .btn-contorno { color: var(--acento); box-shadow: inset 0 0 0 1.5px var(--acento); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .nota { font-size: 14px; color: var(--suave); margin-top: 16px; }
 
-  ol.passos { margin: 0; padding-left: 22px; }
-  ol.passos li { margin-bottom: 10px; padding-left: 4px; }
-  ol.passos li::marker { font-weight: 700; color: var(--acento); }
+  /* Mockup do app */
+  .palco { margin-top: 64px; padding-bottom: 20px; perspective: 2000px; }
+  .janela {
+    container-type: inline-size;
+    width: 100%; max-width: 1080px; margin: 0 auto;
+    aspect-ratio: 16 / 10;
+    border-radius: 14px; overflow: hidden;
+    background: #0b141a;
+    box-shadow: var(--sombra);
+    display: flex; flex-direction: column;
+    animation: surgir 1.1s cubic-bezier(.2,.7,.2,1) both;
+  }
+  @keyframes surgir { from { transform: translateY(40px) rotateX(8deg); opacity: .4; } to { transform: none; opacity: 1; } }
+  .j-topo {
+    height: 5.2cqw; flex: none; display: flex; align-items: center; gap: 1.4cqw;
+    padding: 0 1.4cqw; background: #111b21; border-bottom: 0.1cqw solid #2a3942; color: #e9edef;
+    font-size: 1.15cqw;
+  }
+  .semaforo { display: flex; gap: 0.7cqw; margin-right: 1cqw; }
+  .semaforo i { width: 1.1cqw; height: 1.1cqw; border-radius: 50%; display: block; }
+  .j-titulo { font-weight: 600; white-space: nowrap; }
+  .j-abas { display: flex; gap: 0.6cqw; flex: 1; overflow: hidden; }
+  .j-aba { display: flex; align-items: center; gap: 0.5cqw; border: 0.1cqw solid #2a3942; border-radius: 0.6cqw; padding: 0.35cqw 0.8cqw; white-space: nowrap; }
+  .j-aba .p { width: 0.8cqw; height: 0.8cqw; border-radius: 50%; }
+  .j-aba .n { background: #25d366; color: #0b141a; border-radius: 1cqw; padding: 0 0.5cqw; font-weight: 700; font-size: 0.9cqw; }
+  .j-total { color: #25d366; font-weight: 600; white-space: nowrap; }
+  .j-grade { flex: 1; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: 1fr 1fr; gap: 0.4cqw; padding: 0.4cqw; min-height: 0; }
+  .q { grid-column: span 2; display: flex; flex-direction: column; border: 0.15cqw solid #2a3942; border-radius: 0.7cqw; overflow: hidden; background: #111b21; min-height: 0; }
+  .q.largo { grid-column: span 3; }
+  .q.alerta { border-color: #25d366; }
+  .q-barra { height: 2.6cqw; flex: none; display: flex; align-items: center; gap: 0.6cqw; padding: 0 0.8cqw; background: #202c33; color: #e9edef; font-size: 1cqw; font-weight: 600; }
+  .q-barra .p { width: 0.8cqw; height: 0.8cqw; border-radius: 50%; }
+  .q-barra .st { color: #25d366; font-weight: 400; font-size: 0.8cqw; }
+  .q-barra .n { margin-left: auto; background: #25d366; color: #0b141a; border-radius: 1cqw; padding: 0 0.55cqw; font-size: 0.85cqw; font-weight: 700; }
+  .conversa { display: flex; align-items: center; gap: 0.8cqw; padding: 0.7cqw 0.9cqw; border-bottom: 0.08cqw solid #1f2c33; min-width: 0; }
+  .av { width: 2.8cqw; height: 2.8cqw; border-radius: 50%; flex: none; display: grid; place-items: center; color: #0b141a; font-weight: 700; font-size: 1.05cqw; }
+  .c-txt { flex: 1; min-width: 0; }
+  .c-nome { color: #e9edef; font-size: 1.05cqw; display: flex; justify-content: space-between; gap: 0.5cqw; }
+  .c-nome small { color: #8696a0; font-size: 0.8cqw; }
+  .c-nome small.novo { color: #25d366; }
+  .c-msg { color: #8696a0; font-size: 0.9cqw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; justify-content: space-between; gap: 0.5cqw; }
+  .c-msg b { background: #25d366; color: #0b141a; border-radius: 1cqw; min-width: 1.5cqw; text-align: center; font-size: 0.8cqw; padding: 0 0.35cqw; flex: none; }
+  .legenda { text-align: center; font-size: 14px; color: var(--suave); margin-top: 18px; }
 
-  .aviso { background: var(--aviso-fundo); border-radius: 10px; padding: 14px 16px; margin: 16px 0 0; font-size: 15px; }
-  .aviso strong { color: var(--aviso); }
-  .dica { background: var(--acento-fundo); border-radius: 10px; padding: 14px 16px; margin: 16px 0; font-size: 15px; }
+  /* Seções */
+  section { padding-block: 110px; }
+  .secao-titulo { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  .secao-titulo .rotulo { color: var(--acento); font-weight: 600; font-size: 17px; margin: 0 0 8px; }
+  h2 { font-size: clamp(36px, 5.5vw, 56px); line-height: 1.07; letter-spacing: -0.04em; font-weight: 700; margin: 0; text-wrap: balance; }
+  .secao-titulo p.sub { font-size: 21px; color: var(--suave); margin: 16px auto 0; max-width: 40ch; text-wrap: balance; }
+  .cinza { background: var(--fundo-2); }
 
-  pre { background: var(--codigo-fundo); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 10px 0 0; }
-  code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; }
+  /* Números em destaque */
+  .destaques { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center; }
+  .destaque strong { display: block; font-size: clamp(56px, 8vw, 80px); line-height: 1; letter-spacing: -0.05em; font-weight: 700;
+    background: linear-gradient(180deg, var(--acento) 0%, var(--acento-forte) 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .destaque span { display: block; margin-top: 10px; color: var(--suave); font-size: 17px; max-width: 22ch; margin-inline: auto; }
 
-  .kbd { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; border: 1px solid var(--linha); border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; background: var(--papel); white-space: nowrap; }
+  /* Bento */
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; }
+  .bloco {
+    background: var(--cartao); border-radius: 28px; padding: 36px 34px;
+    grid-column: span 2; display: flex; flex-direction: column; gap: 10px; overflow: hidden; position: relative;
+  }
+  .bloco.g3 { grid-column: span 3; }
+  .bloco.g4 { grid-column: span 4; }
+  .bloco h3 { font-size: 26px; line-height: 1.12; letter-spacing: -0.03em; margin: 0; font-weight: 700; text-wrap: balance; }
+  .bloco p { margin: 0; color: var(--suave); font-size: 17px; }
+  .bloco .visual { margin-top: auto; padding-top: 22px; }
+  .icone-bloco { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: color-mix(in srgb, var(--acento) 14%, transparent); color: var(--acento); }
+  .icone-bloco svg { width: 24px; height: 24px; }
 
+  .badges { display: flex; gap: 10px; flex-wrap: wrap; }
+  .badge-demo { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--linha); border-radius: 980px; padding: 8px 14px; font-weight: 600; font-size: 15px; }
+  .badge-demo i { width: 10px; height: 10px; border-radius: 50%; display: block; }
+  .badge-demo b { background: var(--verde); color: #04130e; border-radius: 980px; padding: 0 8px; font-size: 13px; }
+  .grande-num { font-size: 64px; font-weight: 700; letter-spacing: -0.05em; line-height: 1; color: var(--verde); }
+  .teclas { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tecla { min-width: 48px; height: 48px; padding: 0 12px; border-radius: 10px; display: grid; place-items: center; font-weight: 600; font-size: 17px;
+    background: var(--fundo-2); box-shadow: inset 0 -3px 0 color-mix(in srgb, var(--linha) 80%, transparent), 0 0 0 1px var(--linha); }
+  .mini-grade { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; height: 120px; }
+  .mini-grade i { grid-column: span 2; border-radius: 8px; background: color-mix(in srgb, var(--acento) 18%, transparent); }
+  .mini-grade i:nth-child(n+4) { grid-column: span 3; }
+  .mini-grade i.on { background: var(--acento); }
+
+  /* Passos */
+  .passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: passo; }
+  .passo { background: var(--cartao); border-radius: 28px; padding: 34px; }
+  .passo-num { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--texto); color: var(--fundo); font-weight: 700; margin-bottom: 18px; }
+  .passo h3 { font-size: 24px; letter-spacing: -0.03em; margin: 0 0 8px; }
+  .passo p { margin: 0; color: var(--suave); }
+
+  /* Download */
+  .download { background: var(--escuro); color: var(--escuro-texto); }
+  .download h2 { color: var(--escuro-texto); }
+  .download .secao-titulo p.sub { color: var(--escuro-suave); }
+  .download .secao-titulo .rotulo { color: #34d399; }
+  .plataformas { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 880px; margin: 0 auto; }
+  .plataforma { background: #1c1c1e; border-radius: 28px; padding: 40px 36px; display: flex; flex-direction: column; gap: 6px; }
+  .plataforma h3 { font-size: 32px; letter-spacing: -0.035em; margin: 0; }
+  .plataforma .req { color: var(--escuro-suave); margin: 0 0 22px; }
+  .plataforma .btn { align-self: flex-start; background: #34d399; color: #04130e; }
+  .plataforma .arq { color: var(--escuro-suave); font-size: 13px; margin-top: 14px; font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; overflow-wrap: anywhere; }
+  .pdf { text-align: center; margin-top: 36px; color: var(--escuro-suave); }
+  .pdf a { color: #34d399; }
+
+  /* Guia */
+  .guia { max-width: 820px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--linha); }
+  details:first-of-type { border-top: 1px solid var(--linha); }
+  summary {
+    list-style: none; cursor: pointer; padding: 24px 4px; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    font-size: 21px; font-weight: 600; letter-spacing: -0.02em;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-size: 28px; font-weight: 300; color: var(--suave); transition: transform .25s ease; flex: none; }
+  details[open] summary::after { transform: rotate(45deg); }
+  .det { padding: 0 4px 28px; color: var(--texto); }
+  .det p { margin: 0 0 12px; max-width: 65ch; }
+  .det ol, .det ul { margin: 0 0 12px; padding-left: 22px; }
+  .det li { margin-bottom: 8px; }
+  .det li::marker { color: var(--acento); font-weight: 600; }
+  .aviso { background: var(--fundo-2); border-radius: 16px; padding: 18px 20px; margin: 14px 0; font-size: 16px; }
+  .cinza .aviso { background: var(--cartao); }
+  pre { background: var(--fundo); border: 1px solid var(--linha); border-radius: 10px; padding: 12px 14px; overflow-x: auto; margin: 10px 0 0; }
+  code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: 14px; }
+  .kbd { font-family: inherit; font-size: 14px; font-weight: 600; border-radius: 6px; padding: 2px 8px; background: var(--fundo); box-shadow: 0 0 0 1px var(--linha), inset 0 -2px 0 var(--linha); white-space: nowrap; }
   .tabela { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-size: 15px; }
-  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--linha); vertical-align: top; }
-  th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--suave); font-weight: 600; }
-  td:first-child { white-space: nowrap; font-weight: 600; }
-  .icone { display: inline-grid; place-items: center; min-width: 26px; height: 24px; border: 1px solid var(--linha); border-radius: 6px; background: var(--papel); font-weight: 600; margin-right: 6px; }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; }
+  td { padding: 12px 8px; border-bottom: 1px solid var(--linha); vertical-align: top; }
+  tr:last-child td { border-bottom: 0; }
+  td:first-child { white-space: nowrap; width: 1%; }
+  .ic { display: inline-grid; place-items: center; min-width: 32px; height: 30px; border-radius: 8px; background: var(--fundo); box-shadow: 0 0 0 1px var(--linha); font-weight: 600; margin-right: 4px; }
 
-  .problema { border-bottom: 1px solid var(--linha); padding: 14px 0; }
-  .problema:last-child { border-bottom: 0; }
-  .problema b { display: block; margin-bottom: 4px; }
-  .problema p { margin: 0; color: var(--suave); }
+  /* Rodapé */
+  footer { padding-block: 48px 64px; border-top: 1px solid var(--linha); }
+  footer .conteiner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .assinatura { display: flex; align-items: center; gap: 16px; color: var(--suave); font-size: 14px; }
+  .assinatura strong { color: var(--texto); display: block; font-size: 16px; }
+  .logo-rankx { width: 64px; height: 64px; flex: none; background: var(--texto);
+    -webkit-mask: url(rankx-logo.png) center / contain no-repeat; mask: url(rankx-logo.png) center / contain no-repeat; }
+  .rodape-dir { color: var(--suave); font-size: 13px; }
 
-  .rodape { margin-top: 56px; font-size: 14px; color: var(--suave); }
-
-  .topo-doc { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
-  .dev { display: flex; align-items: center; gap: 10px; color: var(--suave); font-size: 13px; }
-  .logo-rankx {
-    display: inline-block; width: 56px; height: 56px; flex: none;
-    background: var(--tinta);
-    -webkit-mask: url(rankx-logo.png) center / contain no-repeat;
-    mask: url(rankx-logo.png) center / contain no-repeat;
+  @media (max-width: 860px) {
+    .bloco, .bloco.g3, .bloco.g4 { grid-column: span 6; }
+    .passos, .plataformas, .destaques { grid-template-columns: 1fr; }
+    .destaques { gap: 44px; }
+    section { padding-block: 80px; }
+    .nav-links a:not(.pilula) { display: none; }
   }
-  .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 8px; }
-  .baixar {
-    display: flex; flex-direction: column; gap: 2px;
-    background: var(--acento); color: var(--papel); text-decoration: none;
-    border-radius: 12px; padding: 16px 20px;
+  @media (max-width: 560px) {
+    .janela { aspect-ratio: 4 / 3.4; }
   }
-  .baixar:hover { filter: brightness(1.08); }
-  .baixar:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
-  .baixar b { font-family: "Bricolage Grotesque", Figtree, sans-serif; font-size: 20px; }
-  .baixar span { font-size: 13px; opacity: 0.85; }
-  .baixar.secundario { background: var(--papel); color: var(--tinta); border: 1px solid var(--linha); }
-  .rodape { display: flex; align-items: center; gap: 12px; }
-
-  @media print {
-    body { padding-block: 0; background: #fff; }
-    h2 { margin-top: 36px; }
-    h2 { break-after: avoid; }
-    .sistema, .problema, .aviso, .dica, tr { break-inside: avoid; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .janela { animation: none; }
+    .btn, summary::after { transition: none; }
   }
 </style>
+</head>
+<body>
 
-<div class="pagina">
-  <div class="topo-doc">
-    <div class="rotulo" style="margin:0">Guia de instalação e uso</div>
-    <div class="dev">desenvolvido por <span class="logo-rankx" role="img" aria-label="RankX Digital"></span></div>
+<nav class="nav" aria-label="Principal">
+  <div class="conteiner">
+    <a class="nav-marca" href="#topo"><img src="icon.png" alt="">Painel WhatsApp</a>
+    <div class="nav-links">
+      <a href="#recursos">Recursos</a>
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#guia">Guia</a>
+      <a class="pilula" href="#baixar">Baixar</a>
+    </div>
   </div>
-  <h1>Painel WhatsApp</h1>
-  <p class="lead">Um aplicativo para o computador que mostra os 5 números de WhatsApp da empresa na mesma tela, para a equipe atender todos os clientes sem trocar de celular ou de aba.</p>
+</nav>
 
-  <div class="fatos">
-    <div class="fato"><b>Onde roda</b>Aplicativo instalado no computador (Windows ou Mac). Não abre pelo navegador.</div>
-    <div class="fato"><b>O que precisa</b>Internet e os celulares dos 5 números para conectar pela primeira vez.</div>
-    <div class="fato"><b>Onde ficam os dados</b>Só no próprio computador e no WhatsApp. Nada passa por outro servidor.</div>
-  </div>
+<main id="topo">
+  <header class="hero conteiner">
+    <img class="hero-icone" src="icon.png" alt="">
+    <p class="sobretitulo">Painel WhatsApp</p>
+    <h1>Cinco números. Uma só tela.</h1>
+    <p class="hero-sub">Toda a sua equipe atendendo os 5 WhatsApps da empresa lado a lado, sem trocar de celular.</p>
+    <div class="botoes">
+      <a class="btn btn-cheio" href="#baixar">Baixar o aplicativo</a>
+      <a class="btn btn-contorno" href="#como-funciona">Ver como funciona</a>
+    </div>
+    <p class="nota">Para Windows 10/11 e macOS 12 ou mais recente · Versão 1.0</p>
+  </header>
 
-  <h2 id="baixar">Baixar o aplicativo</h2>
-  <p>Escolha o sistema do computador onde a equipe vai atender:</p>
-  <div class="downloads">
-    <a class="baixar" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Painel-WhatsApp-Windows-Instalador.exe"><b>Baixar para Windows</b><span>Windows 10 ou 11 · 106 MB</span></a>
-    <a class="baixar" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Painel-WhatsApp-Mac.dmg"><b>Baixar para Mac</b><span>macOS 12 ou mais recente · 217 MB</span></a>
-    <a class="baixar secundario" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Guia-Painel-WhatsApp.pdf"><b>Guia em PDF</b><span>Este guia para imprimir ou guardar</span></a>
-  </div>
-
-  <h2>1. Antes de instalar</h2>
-  <p>Confira se o computador atende a estes requisitos:</p>
-  <ul>
-    <li><strong>Windows 10 ou 11</strong> (64 bits), ou <strong>macOS 12 (Monterey)</strong> ou mais recente.</li>
-    <li>Tela grande. Com 5 números lado a lado, o ideal é um monitor Full HD (1920 × 1080) ou maior.</li>
-    <li>Os 5 celulares por perto, com o WhatsApp funcionando, para escanear os QR codes.</li>
-  </ul>
-
-  <h2>2. Instalar</h2>
-  <div class="sistemas">
-    <section class="sistema">
-      <h3>No Windows</h3>
-      <p>Arquivo: <span class="arquivo">Painel-WhatsApp-Windows-Instalador.exe</span></p>
-      <ol class="passos">
-        <li>Baixe o arquivo pelo botão <strong>Baixar para Windows</strong> e dê dois cliques nele (fica na pasta Downloads).</li>
-        <li>Se aparecer <em>"O Windows protegeu o computador"</em>, clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>.</li>
-        <li>Clique em <strong>Avançar</strong> e depois em <strong>Instalar</strong>.</li>
-        <li>No final, um atalho <strong>Painel WhatsApp</strong> aparece na Área de Trabalho.</li>
-      </ol>
-    </section>
-
-    <section class="sistema">
-      <h3>No Mac</h3>
-      <p>Arquivo: <span class="arquivo">Painel-WhatsApp-Mac.dmg</span></p>
-      <ol class="passos">
-        <li>Baixe o arquivo pelo botão <strong>Baixar para Mac</strong> e dê dois cliques nele (fica na pasta Downloads).</li>
-        <li>Arraste o ícone <strong>Painel WhatsApp</strong> para a pasta <strong>Aplicativos</strong> (pode aparecer como <em>Applications</em>).</li>
-        <li>Abra o app pela pasta Aplicativos ou pelo Launchpad.</li>
-        <li>Se o Mac bloquear o app, veja o aviso abaixo.</li>
-      </ol>
-    </section>
-  </div>
-
-  <div class="aviso">
-    <strong>Por que aparece um aviso de segurança?</strong> O aplicativo ainda não tem assinatura digital da Microsoft/Apple, então o sistema pede uma confirmação na primeira vez. Isso é normal e só acontece uma vez.
-    <br><br>
-    <strong>No Mac:</strong> se aparecer <em>"não pode ser aberto porque a Apple não pode verificá-lo"</em>, clique em <strong>OK</strong>. Depois abra <strong>Ajustes do Sistema → Privacidade e Segurança</strong>, role até o final e clique em <strong>Abrir Mesmo Assim</strong>.
-    <br><br>
-    Se a mensagem disser que o app <em>"está danificado"</em>, abra o app <strong>Terminal</strong>, cole o comando abaixo, aperte Enter e abra o app de novo:
-    <pre><code>xattr -cr "/Applications/Painel WhatsApp.app"</code></pre>
-  </div>
-
-  <h2>3. Conectar os 5 números</h2>
-  <p>Ao abrir o app, aparecem 5 quadros, cada um com um QR code. Faça isto para cada número:</p>
-  <ol class="passos">
-    <li>No celular daquele número, abra o WhatsApp.</li>
-    <li><strong>Android:</strong> toque nos três pontinhos (⋮) → <strong>Dispositivos conectados</strong>.<br><strong>iPhone:</strong> toque em <strong>Configurações</strong> → <strong>Dispositivos conectados</strong>.</li>
-    <li>Toque em <strong>Conectar dispositivo</strong> e aponte a câmera para o QR code do quadro.</li>
-    <li>Em alguns segundos, as conversas aparecem e o quadro mostra <strong>conectado</strong> em verde.</li>
-  </ol>
-  <div class="dica">
-    <strong>Dê um nome para cada quadro.</strong> Clique em "Número 1" no topo do quadro e escreva, por exemplo, "Vendas", "Suporte" ou "Financeiro". Assim a equipe sabe em qual número está respondendo. O nome fica salvo.
-  </div>
-  <p>Você só faz isso uma vez. Depois, basta abrir o app que os 5 números já entram conectados.</p>
-
-  <h2>4. Usar no dia a dia</h2>
-
-  <h3>A tela</h3>
-  <p>Os 5 números ficam na mesma tela, 3 em cima e 2 embaixo. No topo tem uma aba para cada número e o total de mensagens não lidas de todos eles.</p>
-  <p>Quando chega mensagem, o quadro daquele número ganha uma <strong>borda verde</strong> e um contador. O total também aparece no ícone do app (Dock no Mac, barra de tarefas no Windows).</p>
-
-  <h3>Botões de cada quadro</h3>
-  <div class="tabela">
-    <table>
-      <thead><tr><th>Botão</th><th>O que faz</th></tr></thead>
-      <tbody>
-        <tr><td><span class="icone">−</span><span class="icone">+</span></td><td>Diminui ou aumenta o tamanho das letras e imagens daquele quadro.</td></tr>
-        <tr><td><span class="icone">⟳</span></td><td>Recarrega o número. Use se ele travar ou parar de atualizar.</td></tr>
-        <tr><td><span class="icone">⤢</span></td><td>Expande o número para a tela inteira. Clique de novo para voltar a ver todos.</td></tr>
-        <tr><td><span class="icone">⏻</span></td><td>Desconecta o número. Use só para trocar o número daquele quadro.</td></tr>
-      </tbody>
-    </table>
+  <div class="palco conteiner" aria-label="Ilustração do Painel WhatsApp com cinco números abertos">
+    <div class="janela" role="img" aria-label="Janela do aplicativo com os números Vendas, Suporte, Financeiro, Pós-venda e Loja, cada um com suas conversas">
+      <div class="j-topo">
+        <div class="semaforo"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        <span class="j-titulo">Painel de Atendimento</span>
+        <div class="j-abas">
+          <span class="j-aba"><i class="p" style="background:#25d366"></i>Vendas<span class="n">3</span></span>
+          <span class="j-aba"><i class="p" style="background:#53bdeb"></i>Suporte</span>
+          <span class="j-aba"><i class="p" style="background:#ffd279"></i>Financeiro</span>
+          <span class="j-aba"><i class="p" style="background:#ff8fab"></i>Pós-venda<span class="n">1</span></span>
+          <span class="j-aba"><i class="p" style="background:#b39ddb"></i>Loja</span>
+        </div>
+        <span class="j-total">4 não lidas</span>
+      </div>
+      <div class="j-grade">
+        <div class="q alerta">
+          <div class="q-barra"><i class="p" style="background:#25d366"></i>Vendas <span class="st">conectado</span><span class="n">3</span></div>
+          <div class="conversa"><div class="av" style="background:#9de1c1">MA</div><div class="c-txt"><div class="c-nome">Mariana A.<small class="novo">14:32</small></div><div class="c-msg">Vocês entregam amanhã? <b>2</b></div></div></div>
+          <div class="conversa"><div class="av" style="background:#ffd8a8">RC</div><div class="c-txt"><div class="c-nome">Ricardo C.<small class="novo">14:28</small></div><div class="c-msg">Pode mandar o orçamento <b>1</b></div></div></div>
+          <div class="conversa"><div class="av" style="background:#c5d4ff">JP</div><div class="c-txt"><div class="c-nome">Juliana P.<small>13:50</small></div><div class="c-msg">Perfeito, obrigada!</div></div></div>
+          <div class="conversa"><div class="av" style="background:#ffc9d6">TS</div><div class="c-txt"><div class="c-nome">Thiago S.<small>12:07</small></div><div class="c-msg">Fechado 👍</div></div></div>
+        </div>
+        <div class="q">
+          <div class="q-barra"><i class="p" style="background:#53bdeb"></i>Suporte <span class="st">conectado</span></div>
+          <div class="conversa"><div class="av" style="background:#b7ecf5">LF</div><div class="c-txt"><div class="c-nome">Luiz F.<small>14:21</small></div><div class="c-msg">Resolvido, valeu!</div></div></div>
+          <div class="conversa"><div class="av" style="background:#e0d4ff">AB</div><div class="c-txt"><div class="c-nome">Ana B.<small>14:02</small></div><div class="c-msg">Vou testar e te aviso</div></div></div>
+          <div class="conversa"><div class="av" style="background:#ffe7a3">PR</div><div class="c-txt"><div class="c-nome">Paulo R.<small>11:45</small></div><div class="c-msg">Segue o print do erro</div></div></div>
+          <div class="conversa"><div class="av" style="background:#c9f0d6">CM</div><div class="c-txt"><div class="c-nome">Carla M.<small>10:18</small></div><div class="c-msg">Bom dia!</div></div></div>
+        </div>
+        <div class="q">
+          <div class="q-barra"><i class="p" style="background:#ffd279"></i>Financeiro <span class="st">conectado</span></div>
+          <div class="conversa"><div class="av" style="background:#ffe0b3">GT</div><div class="c-txt"><div class="c-nome">Gustavo T.<small>14:10</small></div><div class="c-msg">Comprovante enviado</div></div></div>
+          <div class="conversa"><div class="av" style="background:#cfe8ff">FL</div><div class="c-txt"><div class="c-nome">Fernanda L.<small>13:33</small></div><div class="c-msg">Qual a chave Pix?</div></div></div>
+          <div class="conversa"><div class="av" style="background:#ffd1dc">BR</div><div class="c-txt"><div class="c-nome">Bruno R.<small>09:52</small></div><div class="c-msg">Boleto recebido</div></div></div>
+          <div class="conversa"><div class="av" style="background:#d9f2c4">EV</div><div class="c-txt"><div class="c-nome">Eduarda V.<small>Ontem</small></div><div class="c-msg">Obrigada pelo retorno</div></div></div>
+        </div>
+        <div class="q largo alerta">
+          <div class="q-barra"><i class="p" style="background:#ff8fab"></i>Pós-venda <span class="st">conectado</span><span class="n">1</span></div>
+          <div class="conversa"><div class="av" style="background:#ffc9d6">SO</div><div class="c-txt"><div class="c-nome">Sofia O.<small class="novo">14:35</small></div><div class="c-msg">Chegou certinho, amei o produto! <b>1</b></div></div></div>
+          <div class="conversa"><div class="av" style="background:#c5d4ff">DN</div><div class="c-txt"><div class="c-nome">Daniel N.<small>13:12</small></div><div class="c-msg">Como faço a troca do tamanho?</div></div></div>
+          <div class="conversa"><div class="av" style="background:#9de1c1">IK</div><div class="c-txt"><div class="c-nome">Isabela K.<small>11:04</small></div><div class="c-msg">Avaliação enviada ⭐⭐⭐⭐⭐</div></div></div>
+        </div>
+        <div class="q largo">
+          <div class="q-barra"><i class="p" style="background:#b39ddb"></i>Loja <span class="st">conectado</span></div>
+          <div class="conversa"><div class="av" style="background:#e0d4ff">RM</div><div class="c-txt"><div class="c-nome">Rafael M.<small>14:19</small></div><div class="c-msg">Vocês abrem sábado?</div></div></div>
+          <div class="conversa"><div class="av" style="background:#ffe7a3">LC</div><div class="c-txt"><div class="c-nome">Larissa C.<small>12:40</small></div><div class="c-msg">Tem na cor azul?</div></div></div>
+          <div class="conversa"><div class="av" style="background:#b7ecf5">VH</div><div class="c-txt"><div class="c-nome">Vinícius H.<small>10:55</small></div><div class="c-msg">Passo aí às 16h</div></div></div>
+        </div>
+      </div>
+    </div>
+    <p class="legenda">Ilustração com conversas de exemplo.</p>
   </div>
 
-  <h3>Atalhos de teclado</h3>
-  <p>No Mac use <span class="kbd">Cmd</span> e no Windows use <span class="kbd">Ctrl</span>:</p>
-  <ul>
-    <li><span class="kbd">Cmd/Ctrl + 1</span> a <span class="kbd">5</span>: expande o número correspondente.</li>
-    <li><span class="kbd">Cmd/Ctrl + 0</span>: volta a mostrar os 5 números.</li>
-  </ul>
-  <p>Enquanto um número está expandido, os outros continuam recebendo mensagens normalmente e o contador lá em cima continua atualizando.</p>
+  <section id="recursos">
+    <div class="conteiner">
+      <div class="destaques">
+        <div class="destaque"><strong>5</strong><span>números de WhatsApp conectados ao mesmo tempo</span></div>
+        <div class="destaque"><strong>1</strong><span>única janela para toda a equipe atender</span></div>
+        <div class="destaque"><strong>0</strong><span>trocas de celular durante o atendimento</span></div>
+      </div>
+    </div>
+  </section>
 
-  <h3>Notificações</h3>
-  <p>Na primeira vez, o computador pode perguntar se o Painel WhatsApp pode mostrar notificações. Clique em <strong>Permitir</strong> para ser avisado das mensagens novas mesmo com o app minimizado.</p>
+  <section class="cinza">
+    <div class="conteiner">
+      <div class="secao-titulo">
+        <p class="rotulo">Recursos</p>
+        <h2>Feito para quem vive no atendimento.</h2>
+        <p class="sub">Tudo o que a equipe precisa para não deixar nenhum cliente esperando.</p>
+      </div>
 
-  <h2>5. Cuidados importantes</h2>
-  <ul>
-    <li><strong>Os celulares precisam entrar na internet de vez em quando.</strong> Se um celular ficar 14 dias sem internet, o WhatsApp desconecta aquele número e será preciso escanear o QR code de novo.</li>
-    <li><strong>Fechar o app não apaga nada.</strong> As conversas ficam no WhatsApp. Ao abrir de novo, tudo volta.</li>
-    <li><strong>Use o WhatsApp normalmente.</strong> O painel é o próprio WhatsApp Web oficial e não envia mensagens automáticas. As regras de uso do WhatsApp continuam valendo.</li>
-    <li><strong>Um computador por instalação.</strong> Cada computador precisa conectar os números pelo QR code. Cada número aceita até 4 dispositivos conectados ao mesmo tempo.</li>
-  </ul>
+      <div class="bento">
+        <article class="bloco g4">
+          <h3>Nada passa despercebido.</h3>
+          <p>Cada número mostra quantas mensagens estão esperando, ganha uma borda verde quando chega mensagem, e o total aparece no topo e no ícone do app.</p>
+          <div class="visual badges">
+            <span class="badge-demo"><i style="background:#25d366"></i>Vendas <b>3</b></span>
+            <span class="badge-demo"><i style="background:#ff8fab"></i>Pós-venda <b>1</b></span>
+            <span class="badge-demo"><i style="background:#53bdeb"></i>Suporte</span>
+          </div>
+        </article>
+        <article class="bloco">
+          <div class="icone-bloco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+          <h3>Um nome para cada número.</h3>
+          <p>Vendas, Suporte, Financeiro. Todo mundo sabe onde está respondendo.</p>
+        </article>
+        <article class="bloco">
+          <h3>Foco com um atalho.</h3>
+          <p>Expanda qualquer número para a tela toda e volte para a visão geral.</p>
+          <div class="visual teclas"><span class="tecla">⌘</span><span class="tecla">1</span><span class="tecla" style="opacity:.5">…</span><span class="tecla">5</span></div>
+        </article>
+        <article class="bloco g4">
+          <h3>Os 5 números organizados como você enxerga.</h3>
+          <p>Três em cima, dois embaixo. Enquanto um número está expandido, os outros continuam recebendo mensagens.</p>
+          <div class="visual mini-grade" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i class="on"></i></div>
+        </article>
+        <article class="bloco g3">
+          <div class="icone-bloco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
+          <h3>Suas conversas ficam com você.</h3>
+          <p>O app usa o WhatsApp Web oficial. As mensagens não passam por nenhum outro servidor: ficam só no computador e no WhatsApp.</p>
+        </article>
+        <article class="bloco g3">
+          <div class="icone-bloco"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
+          <h3>Conecte uma vez. Pronto.</h3>
+          <p>Cada número fica salvo. Abra o app no dia seguinte e os 5 já estão conectados, com notificações de todos eles.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-  <h2>6. Se algo der errado</h2>
-  <div class="problema">
-    <b>O QR code aparece cortado</b>
-    <p>Clique no botão − do quadro ou expanda o número com ⤢ para escanear com mais espaço.</p>
-  </div>
-  <div class="problema">
-    <b>Um número pediu o QR code de novo</b>
-    <p>Ele foi desconectado pelo celular ou ficou muito tempo sem internet. Escaneie o QR code novamente, como no passo 3.</p>
-  </div>
-  <div class="problema">
-    <b>Um quadro está em branco ou travado</b>
-    <p>Clique em ⟳ para recarregar. Se não resolver, feche e abra o app.</p>
-  </div>
-  <div class="problema">
-    <b>Aparece "sem conexão"</b>
-    <p>Confira a internet do computador. O quadro tenta reconectar sozinho a cada 5 segundos.</p>
-  </div>
-  <div class="problema">
-    <b>Não chegam notificações</b>
-    <p>No Mac: Ajustes do Sistema → Notificações → Painel WhatsApp → ativar. No Windows: Configurações → Sistema → Notificações → Painel WhatsApp → ativar.</p>
-  </div>
+  <section id="como-funciona">
+    <div class="conteiner">
+      <div class="secao-titulo">
+        <p class="rotulo">Como funciona</p>
+        <h2>Pronto para atender em minutos.</h2>
+      </div>
+      <div class="passos">
+        <div class="passo"><div class="passo-num">1</div><h3>Baixe</h3><p>Escolha a versão para Windows ou Mac logo abaixo.</p></div>
+        <div class="passo"><div class="passo-num">2</div><h3>Instale</h3><p>Abra o arquivo e siga o instalador. Leva menos de um minuto.</p></div>
+        <div class="passo"><div class="passo-num">3</div><h3>Escaneie</h3><p>Em cada quadro, leia o QR code com o celular daquele número. Pronto.</p></div>
+      </div>
+    </div>
+  </section>
 
-  <h2>7. Desinstalar</h2>
-  <p><strong>Windows:</strong> Configurações → Aplicativos → Painel WhatsApp → Desinstalar.<br>
-  <strong>Mac:</strong> arraste o Painel WhatsApp da pasta Aplicativos para o Lixo.</p>
-  <p>Para desconectar os números completamente, confira também no celular: WhatsApp → Dispositivos conectados → toque no computador → Desconectar.</p>
+  <section class="download" id="baixar">
+    <div class="conteiner">
+      <div class="secao-titulo">
+        <p class="rotulo">Download</p>
+        <h2>Baixe o Painel WhatsApp.</h2>
+        <p class="sub">Escolha o sistema do computador onde a equipe vai atender.</p>
+      </div>
+      <div class="plataformas">
+        <div class="plataforma">
+          <h3>Windows</h3>
+          <p class="req">Windows 10 ou 11 · 64 bits · 106 MB</p>
+          <a class="btn" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Painel-WhatsApp-Windows-Instalador.exe">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12"/><path d="m6 11 6 6 6-6"/><path d="M5 20h14"/></svg>
+            Baixar para Windows
+          </a>
+          <span class="arq">Painel-WhatsApp-Windows-Instalador.exe</span>
+        </div>
+        <div class="plataforma">
+          <h3>Mac</h3>
+          <p class="req">macOS 12 ou mais recente · Intel e Apple Silicon · 217 MB</p>
+          <a class="btn" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Painel-WhatsApp-Mac.dmg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12"/><path d="m6 11 6 6 6-6"/><path d="M5 20h14"/></svg>
+            Baixar para Mac
+          </a>
+          <span class="arq">Painel-WhatsApp-Mac.dmg</span>
+        </div>
+      </div>
+      <p class="pdf">Prefere ter tudo impresso? <a href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Guia-Painel-WhatsApp.pdf">Baixe o guia em PDF</a></p>
+    </div>
+  </section>
 
-  <div class="rodape">
-    <span class="logo-rankx" role="img" aria-label="RankX Digital"></span>
-    <div>Painel WhatsApp · versão 1.0<br>Desenvolvido por <strong>RankX Digital</strong></div>
+  <section class="cinza" id="guia">
+    <div class="conteiner">
+      <div class="secao-titulo">
+        <p class="rotulo">Guia</p>
+        <h2>Instalação e uso.</h2>
+        <p class="sub">Tudo explicado passo a passo. Toque em um tópico para abrir.</p>
+      </div>
+
+      <div class="guia">
+        <details>
+          <summary>Instalar no Windows</summary>
+          <div class="det">
+            <ol>
+              <li>Baixe o arquivo <strong>Painel-WhatsApp-Windows-Instalador.exe</strong> e dê dois cliques nele (fica na pasta Downloads).</li>
+              <li>Se aparecer <em>"O Windows protegeu o computador"</em>, clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>.</li>
+              <li>Clique em <strong>Avançar</strong> e depois em <strong>Instalar</strong>.</li>
+              <li>No final, um atalho <strong>Painel WhatsApp</strong> aparece na Área de Trabalho.</li>
+            </ol>
+          </div>
+        </details>
+
+        <details>
+          <summary>Instalar no Mac</summary>
+          <div class="det">
+            <ol>
+              <li>Baixe o arquivo <strong>Painel-WhatsApp-Mac.dmg</strong> e dê dois cliques nele (fica na pasta Downloads).</li>
+              <li>Arraste o ícone <strong>Painel WhatsApp</strong> para a pasta <strong>Aplicativos</strong> (pode aparecer como <em>Applications</em>).</li>
+              <li>Abra o app pela pasta Aplicativos ou pelo Launchpad.</li>
+            </ol>
+            <div class="aviso">
+              <p><strong>Se o Mac bloquear o app:</strong> clique em OK, abra <strong>Ajustes do Sistema → Privacidade e Segurança</strong>, role até o final e clique em <strong>Abrir Mesmo Assim</strong>.</p>
+              <p style="margin:0">Se a mensagem disser que o app <em>"está danificado"</em>, abra o app <strong>Terminal</strong>, cole o comando abaixo, aperte Enter e abra o app de novo:</p>
+              <pre><code>xattr -cr "/Applications/Painel WhatsApp.app"</code></pre>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Por que aparece um aviso de segurança?</summary>
+          <div class="det">
+            <p>O aplicativo ainda não tem assinatura digital da Microsoft e da Apple, então o sistema pede uma confirmação na primeira vez que ele é aberto. Isso é normal e só acontece uma vez.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Conectar os 5 números</summary>
+          <div class="det">
+            <p>Ao abrir o app, aparecem 5 quadros, cada um com um QR code. Para cada número:</p>
+            <ol>
+              <li>No celular daquele número, abra o WhatsApp.</li>
+              <li><strong>Android:</strong> toque nos três pontinhos (⋮) → <strong>Dispositivos conectados</strong>. <strong>iPhone:</strong> <strong>Configurações</strong> → <strong>Dispositivos conectados</strong>.</li>
+              <li>Toque em <strong>Conectar dispositivo</strong> e aponte a câmera para o QR code do quadro.</li>
+              <li>Em alguns segundos as conversas aparecem, e o quadro mostra <strong>conectado</strong> em verde.</li>
+            </ol>
+            <div class="aviso">Dê um nome para cada quadro: clique em "Número 1" no topo do quadro e escreva, por exemplo, "Vendas". O nome fica salvo.</div>
+          </div>
+        </details>
+
+        <details>
+          <summary>Botões e atalhos</summary>
+          <div class="det">
+            <div class="tabela">
+              <table>
+                <tr><td><span class="ic">−</span><span class="ic">+</span></td><td>Diminui ou aumenta o tamanho das letras e imagens daquele quadro.</td></tr>
+                <tr><td><span class="ic">⟳</span></td><td>Recarrega o número. Use se ele travar ou parar de atualizar.</td></tr>
+                <tr><td><span class="ic">⤢</span></td><td>Expande o número para a tela inteira. Clique de novo para voltar a ver todos.</td></tr>
+                <tr><td><span class="ic">⏻</span></td><td>Desconecta o número. Use só para trocar o número daquele quadro.</td></tr>
+              </table>
+            </div>
+            <p style="margin-top:16px"><span class="kbd">⌘ 1</span> a <span class="kbd">⌘ 5</span> expandem um número e <span class="kbd">⌘ 0</span> volta para todos. No Windows, use <span class="kbd">Ctrl</span> no lugar de <span class="kbd">⌘</span>.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Cuidados importantes</summary>
+          <div class="det">
+            <ul>
+              <li><strong>Os celulares precisam entrar na internet de vez em quando.</strong> Se um celular ficar 14 dias sem internet, o WhatsApp desconecta aquele número e será preciso escanear o QR code de novo.</li>
+              <li><strong>Fechar o app não apaga nada.</strong> As conversas ficam no WhatsApp. Ao abrir de novo, tudo volta.</li>
+              <li><strong>Use o WhatsApp normalmente.</strong> O painel é o WhatsApp Web oficial e não envia mensagens automáticas. As regras de uso do WhatsApp continuam valendo.</li>
+              <li><strong>Um computador por instalação.</strong> Cada computador conecta os números pelo QR code. Cada número aceita até 4 dispositivos conectados.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>Se algo der errado</summary>
+          <div class="det">
+            <p><strong>O QR code aparece cortado.</strong> Clique no botão − do quadro ou expanda o número com ⤢.</p>
+            <p><strong>Um número pediu o QR code de novo.</strong> Ele foi desconectado pelo celular ou ficou muito tempo sem internet. Escaneie o QR code novamente.</p>
+            <p><strong>Um quadro está em branco ou travado.</strong> Clique em ⟳. Se não resolver, feche e abra o app.</p>
+            <p><strong>Aparece "sem conexão".</strong> Confira a internet do computador. O quadro tenta reconectar sozinho a cada 5 segundos.</p>
+            <p><strong>Não chegam notificações.</strong> No Mac: Ajustes do Sistema → Notificações → Painel WhatsApp. No Windows: Configurações → Sistema → Notificações → Painel WhatsApp.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Desinstalar</summary>
+          <div class="det">
+            <p><strong>Windows:</strong> Configurações → Aplicativos → Painel WhatsApp → Desinstalar.<br><strong>Mac:</strong> arraste o Painel WhatsApp da pasta Aplicativos para o Lixo.</p>
+            <p>Para desconectar os números completamente, confira também no celular: WhatsApp → Dispositivos conectados → toque no computador → Desconectar.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="conteiner">
+    <div class="assinatura">
+      <span class="logo-rankx" role="img" aria-label="RankX Digital"></span>
+      <div><span>Desenvolvido por</span><strong>RankX Digital</strong></div>
+    </div>
+    <div class="rodape-dir">Painel WhatsApp 1.0 · © 2026 RankX Digital</div>
   </div>
-</div>
+</footer>
 
 </body>
 </html>
