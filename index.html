@@ -120,49 +120,32 @@
   .btn svg { width: 18px; height: 18px; flex: none; }
   .nota { font-size: 14px; color: var(--suave); margin-top: 16px; }
 
-  /* Mockup do app */
+  /* Prints do app */
   .palco { margin-top: 64px; padding-bottom: 20px; perspective: 2000px; }
-  .janela {
-    container-type: inline-size;
-    width: 100%; max-width: 1080px; margin: 0 auto;
-    aspect-ratio: 16 / 10;
-    border-radius: 14px; overflow: hidden;
-    background: #0b141a;
+  .moldura {
+    position: relative; max-width: 1080px; margin: 0 auto;
+    border-radius: 14px; overflow: hidden; background: #111b21;
     box-shadow: var(--sombra);
-    display: flex; flex-direction: column;
-    animation: surgir 1.1s cubic-bezier(.2,.7,.2,1) both;
   }
+  .palco .moldura { animation: surgir 1.1s cubic-bezier(.2,.7,.2,1) both; }
   @keyframes surgir { from { transform: translateY(40px) rotateX(8deg); opacity: .4; } to { transform: none; opacity: 1; } }
-  .j-topo {
-    height: 5.2cqw; flex: none; display: flex; align-items: center; gap: 1.4cqw;
-    padding: 0 1.4cqw; background: #111b21; border-bottom: 0.1cqw solid #2a3942; color: #e9edef;
-    font-size: 1.15cqw;
-  }
-  .semaforo { display: flex; gap: 0.7cqw; margin-right: 1cqw; }
-  .semaforo i { width: 1.1cqw; height: 1.1cqw; border-radius: 50%; display: block; }
-  .j-titulo { font-weight: 600; white-space: nowrap; }
-  .j-abas { display: flex; gap: 0.6cqw; flex: 1; overflow: hidden; }
-  .j-aba { display: flex; align-items: center; gap: 0.5cqw; border: 0.1cqw solid #2a3942; border-radius: 0.6cqw; padding: 0.35cqw 0.8cqw; white-space: nowrap; }
-  .j-aba .p { width: 0.8cqw; height: 0.8cqw; border-radius: 50%; }
-  .j-aba .n { background: #25d366; color: #0b141a; border-radius: 1cqw; padding: 0 0.5cqw; font-weight: 700; font-size: 0.9cqw; }
-  .j-total { color: #25d366; font-weight: 600; white-space: nowrap; }
-  .j-grade { flex: 1; display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: 1fr 1fr; gap: 0.4cqw; padding: 0.4cqw; min-height: 0; }
-  .q { grid-column: span 2; display: flex; flex-direction: column; border: 0.15cqw solid #2a3942; border-radius: 0.7cqw; overflow: hidden; background: #111b21; min-height: 0; }
-  .q.largo { grid-column: span 3; }
-  .q.alerta { border-color: #25d366; }
-  .q-barra { height: 2.6cqw; flex: none; display: flex; align-items: center; gap: 0.6cqw; padding: 0 0.8cqw; background: #202c33; color: #e9edef; font-size: 1cqw; font-weight: 600; }
-  .q-barra .p { width: 0.8cqw; height: 0.8cqw; border-radius: 50%; }
-  .q-barra .st { color: #25d366; font-weight: 400; font-size: 0.8cqw; }
-  .q-barra .n { margin-left: auto; background: #25d366; color: #0b141a; border-radius: 1cqw; padding: 0 0.55cqw; font-size: 0.85cqw; font-weight: 700; }
-  .conversa { display: flex; align-items: center; gap: 0.8cqw; padding: 0.7cqw 0.9cqw; border-bottom: 0.08cqw solid #1f2c33; min-width: 0; }
-  .av { width: 2.8cqw; height: 2.8cqw; border-radius: 50%; flex: none; display: grid; place-items: center; color: #0b141a; font-weight: 700; font-size: 1.05cqw; }
-  .c-txt { flex: 1; min-width: 0; }
-  .c-nome { color: #e9edef; font-size: 1.05cqw; display: flex; justify-content: space-between; gap: 0.5cqw; }
-  .c-nome small { color: #8696a0; font-size: 0.8cqw; }
-  .c-nome small.novo { color: #25d366; }
-  .c-msg { color: #8696a0; font-size: 0.9cqw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: flex; justify-content: space-between; gap: 0.5cqw; }
-  .c-msg b { background: #25d366; color: #0b141a; border-radius: 1cqw; min-width: 1.5cqw; text-align: center; font-size: 0.8cqw; padding: 0 0.35cqw; flex: none; }
+  .moldura img { display: block; width: 100%; height: auto; aspect-ratio: 24 / 13; }
+  .semaforo { position: absolute; left: 1.35%; top: 2.05%; display: flex; gap: 0.62%; width: 6%; }
+  .semaforo i { display: block; width: 26%; aspect-ratio: 1; border-radius: 50%; }
   .legenda { text-align: center; font-size: 14px; color: var(--suave); margin-top: 18px; }
+
+  .segmento {
+    display: flex; width: max-content; max-width: 100%; margin: 0 auto 36px; padding: 4px; gap: 2px;
+    background: var(--cartao); border-radius: 980px; box-shadow: 0 0 0 1px var(--linha); overflow-x: auto;
+  }
+  .segmento button {
+    font: inherit; font-size: 15px; font-weight: 500; letter-spacing: -0.01em; color: var(--texto);
+    background: transparent; border: 0; border-radius: 980px; padding: 9px 20px; cursor: pointer; white-space: nowrap;
+  }
+  .segmento button[aria-selected="true"] { background: var(--texto); color: var(--fundo); }
+  .tela-painel[hidden] { display: none; }
+  .tela-texto { text-align: center; max-width: 52ch; margin: 28px auto 0; color: var(--suave); font-size: 19px; text-wrap: balance; }
+  .tela-texto strong { color: var(--texto); }
 
   /* Seções */
   section { padding-block: 110px; }
@@ -270,12 +253,9 @@
     section { padding-block: 80px; }
     .nav-links a:not(.pilula) { display: none; }
   }
-  @media (max-width: 560px) {
-    .janela { aspect-ratio: 4 / 3.4; }
-  }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
-    .janela { animation: none; }
+    .palco .moldura { animation: none; }
     .btn, summary::after { transition: none; }
   }
 </style>
@@ -287,6 +267,7 @@
     <a class="nav-marca" href="#topo"><img src="icon.png" alt="">Painel WhatsApp</a>
     <div class="nav-links">
       <a href="#recursos">Recursos</a>
+      <a href="#telas">Telas</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#guia">Guia</a>
       <a class="pilula" href="#baixar">Baixar</a>
@@ -307,57 +288,13 @@
     <p class="nota">Para Windows 10/11 e macOS 12 ou mais recente · Versão 1.0</p>
   </header>
 
-  <div class="palco conteiner" aria-label="Ilustração do Painel WhatsApp com cinco números abertos">
-    <div class="janela" role="img" aria-label="Janela do aplicativo com os números Vendas, Suporte, Financeiro, Pós-venda e Loja, cada um com suas conversas">
-      <div class="j-topo">
-        <div class="semaforo"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
-        <span class="j-titulo">Painel de Atendimento</span>
-        <div class="j-abas">
-          <span class="j-aba"><i class="p" style="background:#25d366"></i>Vendas<span class="n">3</span></span>
-          <span class="j-aba"><i class="p" style="background:#53bdeb"></i>Suporte</span>
-          <span class="j-aba"><i class="p" style="background:#ffd279"></i>Financeiro</span>
-          <span class="j-aba"><i class="p" style="background:#ff8fab"></i>Pós-venda<span class="n">1</span></span>
-          <span class="j-aba"><i class="p" style="background:#b39ddb"></i>Loja</span>
-        </div>
-        <span class="j-total">4 não lidas</span>
-      </div>
-      <div class="j-grade">
-        <div class="q alerta">
-          <div class="q-barra"><i class="p" style="background:#25d366"></i>Vendas <span class="st">conectado</span><span class="n">3</span></div>
-          <div class="conversa"><div class="av" style="background:#9de1c1">MA</div><div class="c-txt"><div class="c-nome">Mariana A.<small class="novo">14:32</small></div><div class="c-msg">Vocês entregam amanhã? <b>2</b></div></div></div>
-          <div class="conversa"><div class="av" style="background:#ffd8a8">RC</div><div class="c-txt"><div class="c-nome">Ricardo C.<small class="novo">14:28</small></div><div class="c-msg">Pode mandar o orçamento <b>1</b></div></div></div>
-          <div class="conversa"><div class="av" style="background:#c5d4ff">JP</div><div class="c-txt"><div class="c-nome">Juliana P.<small>13:50</small></div><div class="c-msg">Perfeito, obrigada!</div></div></div>
-          <div class="conversa"><div class="av" style="background:#ffc9d6">TS</div><div class="c-txt"><div class="c-nome">Thiago S.<small>12:07</small></div><div class="c-msg">Fechado 👍</div></div></div>
-        </div>
-        <div class="q">
-          <div class="q-barra"><i class="p" style="background:#53bdeb"></i>Suporte <span class="st">conectado</span></div>
-          <div class="conversa"><div class="av" style="background:#b7ecf5">LF</div><div class="c-txt"><div class="c-nome">Luiz F.<small>14:21</small></div><div class="c-msg">Resolvido, valeu!</div></div></div>
-          <div class="conversa"><div class="av" style="background:#e0d4ff">AB</div><div class="c-txt"><div class="c-nome">Ana B.<small>14:02</small></div><div class="c-msg">Vou testar e te aviso</div></div></div>
-          <div class="conversa"><div class="av" style="background:#ffe7a3">PR</div><div class="c-txt"><div class="c-nome">Paulo R.<small>11:45</small></div><div class="c-msg">Segue o print do erro</div></div></div>
-          <div class="conversa"><div class="av" style="background:#c9f0d6">CM</div><div class="c-txt"><div class="c-nome">Carla M.<small>10:18</small></div><div class="c-msg">Bom dia!</div></div></div>
-        </div>
-        <div class="q">
-          <div class="q-barra"><i class="p" style="background:#ffd279"></i>Financeiro <span class="st">conectado</span></div>
-          <div class="conversa"><div class="av" style="background:#ffe0b3">GT</div><div class="c-txt"><div class="c-nome">Gustavo T.<small>14:10</small></div><div class="c-msg">Comprovante enviado</div></div></div>
-          <div class="conversa"><div class="av" style="background:#cfe8ff">FL</div><div class="c-txt"><div class="c-nome">Fernanda L.<small>13:33</small></div><div class="c-msg">Qual a chave Pix?</div></div></div>
-          <div class="conversa"><div class="av" style="background:#ffd1dc">BR</div><div class="c-txt"><div class="c-nome">Bruno R.<small>09:52</small></div><div class="c-msg">Boleto recebido</div></div></div>
-          <div class="conversa"><div class="av" style="background:#d9f2c4">EV</div><div class="c-txt"><div class="c-nome">Eduarda V.<small>Ontem</small></div><div class="c-msg">Obrigada pelo retorno</div></div></div>
-        </div>
-        <div class="q largo alerta">
-          <div class="q-barra"><i class="p" style="background:#ff8fab"></i>Pós-venda <span class="st">conectado</span><span class="n">1</span></div>
-          <div class="conversa"><div class="av" style="background:#ffc9d6">SO</div><div class="c-txt"><div class="c-nome">Sofia O.<small class="novo">14:35</small></div><div class="c-msg">Chegou certinho, amei o produto! <b>1</b></div></div></div>
-          <div class="conversa"><div class="av" style="background:#c5d4ff">DN</div><div class="c-txt"><div class="c-nome">Daniel N.<small>13:12</small></div><div class="c-msg">Como faço a troca do tamanho?</div></div></div>
-          <div class="conversa"><div class="av" style="background:#9de1c1">IK</div><div class="c-txt"><div class="c-nome">Isabela K.<small>11:04</small></div><div class="c-msg">Avaliação enviada ⭐⭐⭐⭐⭐</div></div></div>
-        </div>
-        <div class="q largo">
-          <div class="q-barra"><i class="p" style="background:#b39ddb"></i>Loja <span class="st">conectado</span></div>
-          <div class="conversa"><div class="av" style="background:#e0d4ff">RM</div><div class="c-txt"><div class="c-nome">Rafael M.<small>14:19</small></div><div class="c-msg">Vocês abrem sábado?</div></div></div>
-          <div class="conversa"><div class="av" style="background:#ffe7a3">LC</div><div class="c-txt"><div class="c-nome">Larissa C.<small>12:40</small></div><div class="c-msg">Tem na cor azul?</div></div></div>
-          <div class="conversa"><div class="av" style="background:#b7ecf5">VH</div><div class="c-txt"><div class="c-nome">Vinícius H.<small>10:55</small></div><div class="c-msg">Passo aí às 16h</div></div></div>
-        </div>
-      </div>
+  <div class="palco conteiner">
+    <div class="moldura">
+      <img src="prints/visao-geral.jpg" width="2400" height="1300" fetchpriority="high"
+           alt="Painel WhatsApp com os números Vendas, Suporte, Financeiro, Pós-venda e Loja abertos lado a lado">
+      <div class="semaforo" aria-hidden="true"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
     </div>
-    <p class="legenda">Ilustração com conversas de exemplo.</p>
+    <p class="legenda">Tela real do aplicativo. As conversas são exemplos.</p>
   </div>
 
   <section id="recursos">
@@ -414,6 +351,46 @@
           <p>Cada número fica salvo. Abra o app no dia seguinte e os 5 já estão conectados, com notificações de todos eles.</p>
         </article>
       </div>
+    </div>
+  </section>
+
+  <section id="telas">
+    <div class="conteiner">
+      <div class="secao-titulo">
+        <p class="rotulo">Veja por dentro</p>
+        <h2>Cada número no seu lugar.</h2>
+      </div>
+
+      <div class="segmento" role="tablist" aria-label="Telas do aplicativo">
+        <button role="tab" id="aba-geral" aria-controls="tela-geral" aria-selected="true">Visão geral</button>
+        <button role="tab" id="aba-foco" aria-controls="tela-foco" aria-selected="false">Número em foco</button>
+        <button role="tab" id="aba-conectar" aria-controls="tela-conectar" aria-selected="false">Conectar número</button>
+      </div>
+
+      <div class="tela-painel" id="tela-geral" role="tabpanel" aria-labelledby="aba-geral">
+        <div class="moldura">
+          <img src="prints/visao-geral.jpg" width="2400" height="1300" loading="lazy" alt="Os 5 números abertos na mesma tela, com contadores de mensagens não lidas">
+          <div class="semaforo" aria-hidden="true"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        </div>
+        <p class="tela-texto"><strong>Os 5 números de uma vez.</strong> Quem tem mensagem nova ganha borda verde e contador, e o total aparece no topo.</p>
+      </div>
+
+      <div class="tela-painel" id="tela-foco" role="tabpanel" aria-labelledby="aba-foco" hidden>
+        <div class="moldura">
+          <img src="prints/numero-em-foco.jpg" width="2400" height="1300" loading="lazy" alt="O número Vendas expandido para a tela inteira, com uma conversa aberta">
+          <div class="semaforo" aria-hidden="true"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        </div>
+        <p class="tela-texto"><strong>Um número na tela inteira.</strong> Clique em ⤢ ou use ⌘1 a ⌘5. Os outros números continuam recebendo mensagens.</p>
+      </div>
+
+      <div class="tela-painel" id="tela-conectar" role="tabpanel" aria-labelledby="aba-conectar" hidden>
+        <div class="moldura">
+          <img src="prints/conectar-numero.jpg" width="2400" height="1300" loading="lazy" alt="Quatro números conectados e o quinto mostrando o QR code do WhatsApp para conectar">
+          <div class="semaforo" aria-hidden="true"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></div>
+        </div>
+        <p class="tela-texto"><strong>Conectar é só escanear.</strong> Cada quadro mostra o QR code do WhatsApp. Leia com o celular daquele número e pronto.</p>
+      </div>
+      <p class="legenda">Telas reais do aplicativo. As conversas são exemplos.</p>
     </div>
   </section>
 
@@ -580,5 +557,27 @@
   </div>
 </footer>
 
+<script>
+  (function () {
+    var abas = document.querySelectorAll('.segmento [role="tab"]');
+    function selecionar(aba) {
+      abas.forEach(function (a) {
+        var ativa = a === aba;
+        a.setAttribute('aria-selected', ativa);
+        a.tabIndex = ativa ? 0 : -1;
+        document.getElementById(a.getAttribute('aria-controls')).hidden = !ativa;
+      });
+    }
+    abas.forEach(function (aba, i) {
+      aba.tabIndex = i === 0 ? 0 : -1;
+      aba.addEventListener('click', function () { selecionar(aba); });
+      aba.addEventListener('keydown', function (e) {
+        if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+        var prox = abas[(i + (e.key === 'ArrowRight' ? 1 : abas.length - 1)) % abas.length];
+        prox.focus(); selecionar(prox);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
