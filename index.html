@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel WhatsApp · Download</title>
+<meta name="description" content="Os 5 números de WhatsApp da empresa em uma única tela de atendimento. Baixe para Windows ou Mac e veja como instalar e usar.">
+<link rel="icon" type="image/png" href="icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RankX Digital">
+<meta property="og:title" content="Painel WhatsApp · Download">
+<meta property="og:description" content="Os 5 números de WhatsApp da empresa em uma única tela de atendimento. Baixe para Windows ou Mac e veja como instalar e usar.">
+<meta property="og:url" content="https://marcelinoeviva-creator.github.io/painel-whatsapp/">
+<meta property="og:image" content="https://marcelinoeviva-creator.github.io/painel-whatsapp/thumb.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Painel WhatsApp: 5 números em uma única tela, desenvolvido por RankX Digital">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --fundo: #f7f9f8;
+    --papel: #ffffff;
+    --tinta: #14211d;
+    --suave: #5b6b65;
+    --linha: #dde4e0;
+    --acento: #0e6b55;
+    --acento-fundo: #e5f2ed;
+    --aviso: #9a5b0c;
+    --aviso-fundo: #fbf1e1;
+    --codigo-fundo: #eef2f0;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fundo: #0f1714; --papel: #16211d; --tinta: #e6ede9; --suave: #9aaba4;
+      --linha: #2a3833; --acento: #5fd3ae; --acento-fundo: #173a30;
+      --aviso: #f0b866; --aviso-fundo: #35291a; --codigo-fundo: #1f2c27;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --fundo: #0f1714; --papel: #16211d; --tinta: #e6ede9; --suave: #9aaba4;
+    --linha: #2a3833; --acento: #5fd3ae; --acento-fundo: #173a30;
+    --aviso: #f0b866; --aviso-fundo: #35291a; --codigo-fundo: #1f2c27;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--tinta);
+    font: 16px/1.6 Figtree, -apple-system, "Segoe UI", sans-serif;
+    padding-inline: 20px;
+    padding-block: 48px 72px;
+  }
+  .pagina { max-width: 760px; margin: 0 auto; }
+
+  h1, h2, h3 { font-family: "Bricolage Grotesque", Figtree, sans-serif; text-wrap: balance; line-height: 1.15; }
+  h1 { font-size: clamp(32px, 6vw, 46px); margin: 0 0 12px; letter-spacing: -0.02em; }
+  h2 { font-size: 26px; margin: 56px 0 16px; padding-top: 24px; border-top: 1px solid var(--linha); }
+  h3 { font-size: 18px; margin: 28px 0 8px; }
+  p { margin: 0 0 14px; max-width: 65ch; }
+  .rotulo {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--acento); margin-bottom: 10px;
+  }
+  .lead { font-size: 19px; color: var(--suave); }
+
+  .fatos { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 28px 0 0; }
+  .fato { background: var(--papel); border: 1px solid var(--linha); border-radius: 10px; padding: 14px 16px; }
+  .fato b { display: block; font-size: 13px; color: var(--suave); font-weight: 600; margin-bottom: 2px; }
+
+  .sistemas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .sistema { background: var(--papel); border: 1px solid var(--linha); border-radius: 12px; padding: 20px 22px; }
+  .sistema h3 { margin-top: 0; }
+  .arquivo { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; background: var(--codigo-fundo); padding: 2px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+
+  ol.passos { margin: 0; padding-left: 22px; }
+  ol.passos li { margin-bottom: 10px; padding-left: 4px; }
+  ol.passos li::marker { font-weight: 700; color: var(--acento); }
+
+  .aviso { background: var(--aviso-fundo); border-radius: 10px; padding: 14px 16px; margin: 16px 0 0; font-size: 15px; }
+  .aviso strong { color: var(--aviso); }
+  .dica { background: var(--acento-fundo); border-radius: 10px; padding: 14px 16px; margin: 16px 0; font-size: 15px; }
+
+  pre { background: var(--codigo-fundo); border-radius: 8px; padding: 12px 14px; overflow-x: auto; margin: 10px 0 0; }
+  code { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; }
+
+  .kbd { font-family: "JetBrains Mono", ui-monospace, monospace; font-size: 13px; border: 1px solid var(--linha); border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px; background: var(--papel); white-space: nowrap; }
+
+  .tabela { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--linha); vertical-align: top; }
+  th { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--suave); font-weight: 600; }
+  td:first-child { white-space: nowrap; font-weight: 600; }
+  .icone { display: inline-grid; place-items: center; min-width: 26px; height: 24px; border: 1px solid var(--linha); border-radius: 6px; background: var(--papel); font-weight: 600; margin-right: 6px; }
+
+  .problema { border-bottom: 1px solid var(--linha); padding: 14px 0; }
+  .problema:last-child { border-bottom: 0; }
+  .problema b { display: block; margin-bottom: 4px; }
+  .problema p { margin: 0; color: var(--suave); }
+
+  .rodape { margin-top: 56px; font-size: 14px; color: var(--suave); }
+
+  .topo-doc { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+  .dev { display: flex; align-items: center; gap: 10px; color: var(--suave); font-size: 13px; }
+  .logo-rankx {
+    display: inline-block; width: 56px; height: 56px; flex: none;
+    background: var(--tinta);
+    -webkit-mask: url(rankx-logo.png) center / contain no-repeat;
+    mask: url(rankx-logo.png) center / contain no-repeat;
+  }
+  .downloads { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 8px; }
+  .baixar {
+    display: flex; flex-direction: column; gap: 2px;
+    background: var(--acento); color: var(--papel); text-decoration: none;
+    border-radius: 12px; padding: 16px 20px;
+  }
+  .baixar:hover { filter: brightness(1.08); }
+  .baixar:focus-visible { outline: 3px solid var(--tinta); outline-offset: 2px; }
+  .baixar b { font-family: "Bricolage Grotesque", Figtree, sans-serif; font-size: 20px; }
+  .baixar span { font-size: 13px; opacity: 0.85; }
+  .baixar.secundario { background: var(--papel); color: var(--tinta); border: 1px solid var(--linha); }
+  .rodape { display: flex; align-items: center; gap: 12px; }
+
+  @media print {
+    body { padding-block: 0; background: #fff; }
+    h2 { margin-top: 36px; }
+    h2 { break-after: avoid; }
+    .sistema, .problema, .aviso, .dica, tr { break-inside: avoid; }
+  }
+</style>
+
+<div class="pagina">
+  <div class="topo-doc">
+    <div class="rotulo" style="margin:0">Guia de instalação e uso</div>
+    <div class="dev">desenvolvido por <span class="logo-rankx" role="img" aria-label="RankX Digital"></span></div>
+  </div>
+  <h1>Painel WhatsApp</h1>
+  <p class="lead">Um aplicativo para o computador que mostra os 5 números de WhatsApp da empresa na mesma tela, para a equipe atender todos os clientes sem trocar de celular ou de aba.</p>
+
+  <div class="fatos">
+    <div class="fato"><b>Onde roda</b>Aplicativo instalado no computador (Windows ou Mac). Não abre pelo navegador.</div>
+    <div class="fato"><b>O que precisa</b>Internet e os celulares dos 5 números para conectar pela primeira vez.</div>
+    <div class="fato"><b>Onde ficam os dados</b>Só no próprio computador e no WhatsApp. Nada passa por outro servidor.</div>
+  </div>
+
+  <h2 id="baixar">Baixar o aplicativo</h2>
+  <p>Escolha o sistema do computador onde a equipe vai atender:</p>
+  <div class="downloads">
+    <a class="baixar" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Painel-WhatsApp-Windows-Instalador.exe"><b>Baixar para Windows</b><span>Windows 10 ou 11 · 106 MB</span></a>
+    <a class="baixar" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Painel-WhatsApp-Mac.dmg"><b>Baixar para Mac</b><span>macOS 12 ou mais recente · 217 MB</span></a>
+    <a class="baixar secundario" href="https://github.com/marcelinoeviva-creator/painel-whatsapp/releases/latest/download/Guia-Painel-WhatsApp.pdf"><b>Guia em PDF</b><span>Este guia para imprimir ou guardar</span></a>
+  </div>
+
+  <h2>1. Antes de instalar</h2>
+  <p>Confira se o computador atende a estes requisitos:</p>
+  <ul>
+    <li><strong>Windows 10 ou 11</strong> (64 bits), ou <strong>macOS 12 (Monterey)</strong> ou mais recente.</li>
+    <li>Tela grande. Com 5 números lado a lado, o ideal é um monitor Full HD (1920 × 1080) ou maior.</li>
+    <li>Os 5 celulares por perto, com o WhatsApp funcionando, para escanear os QR codes.</li>
+  </ul>
+
+  <h2>2. Instalar</h2>
+  <div class="sistemas">
+    <section class="sistema">
+      <h3>No Windows</h3>
+      <p>Arquivo: <span class="arquivo">Painel-WhatsApp-Windows-Instalador.exe</span></p>
+      <ol class="passos">
+        <li>Baixe o arquivo pelo botão <strong>Baixar para Windows</strong> e dê dois cliques nele (fica na pasta Downloads).</li>
+        <li>Se aparecer <em>"O Windows protegeu o computador"</em>, clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>.</li>
+        <li>Clique em <strong>Avançar</strong> e depois em <strong>Instalar</strong>.</li>
+        <li>No final, um atalho <strong>Painel WhatsApp</strong> aparece na Área de Trabalho.</li>
+      </ol>
+    </section>
+
+    <section class="sistema">
+      <h3>No Mac</h3>
+      <p>Arquivo: <span class="arquivo">Painel-WhatsApp-Mac.dmg</span></p>
+      <ol class="passos">
+        <li>Baixe o arquivo pelo botão <strong>Baixar para Mac</strong> e dê dois cliques nele (fica na pasta Downloads).</li>
+        <li>Arraste o ícone <strong>Painel WhatsApp</strong> para a pasta <strong>Aplicativos</strong> (pode aparecer como <em>Applications</em>).</li>
+        <li>Abra o app pela pasta Aplicativos ou pelo Launchpad.</li>
+        <li>Se o Mac bloquear o app, veja o aviso abaixo.</li>
+      </ol>
+    </section>
+  </div>
+
+  <div class="aviso">
+    <strong>Por que aparece um aviso de segurança?</strong> O aplicativo ainda não tem assinatura digital da Microsoft/Apple, então o sistema pede uma confirmação na primeira vez. Isso é normal e só acontece uma vez.
+    <br><br>
+    <strong>No Mac:</strong> se aparecer <em>"não pode ser aberto porque a Apple não pode verificá-lo"</em>, clique em <strong>OK</strong>. Depois abra <strong>Ajustes do Sistema → Privacidade e Segurança</strong>, role até o final e clique em <strong>Abrir Mesmo Assim</strong>.
+    <br><br>
+    Se a mensagem disser que o app <em>"está danificado"</em>, abra o app <strong>Terminal</strong>, cole o comando abaixo, aperte Enter e abra o app de novo:
+    <pre><code>xattr -cr "/Applications/Painel WhatsApp.app"</code></pre>
+  </div>
+
+  <h2>3. Conectar os 5 números</h2>
+  <p>Ao abrir o app, aparecem 5 quadros, cada um com um QR code. Faça isto para cada número:</p>
+  <ol class="passos">
+    <li>No celular daquele número, abra o WhatsApp.</li>
+    <li><strong>Android:</strong> toque nos três pontinhos (⋮) → <strong>Dispositivos conectados</strong>.<br><strong>iPhone:</strong> toque em <strong>Configurações</strong> → <strong>Dispositivos conectados</strong>.</li>
+    <li>Toque em <strong>Conectar dispositivo</strong> e aponte a câmera para o QR code do quadro.</li>
+    <li>Em alguns segundos, as conversas aparecem e o quadro mostra <strong>conectado</strong> em verde.</li>
+  </ol>
+  <div class="dica">
+    <strong>Dê um nome para cada quadro.</strong> Clique em "Número 1" no topo do quadro e escreva, por exemplo, "Vendas", "Suporte" ou "Financeiro". Assim a equipe sabe em qual número está respondendo. O nome fica salvo.
+  </div>
+  <p>Você só faz isso uma vez. Depois, basta abrir o app que os 5 números já entram conectados.</p>
+
+  <h2>4. Usar no dia a dia</h2>
+
+  <h3>A tela</h3>
+  <p>Os 5 números ficam na mesma tela, 3 em cima e 2 embaixo. No topo tem uma aba para cada número e o total de mensagens não lidas de todos eles.</p>
+  <p>Quando chega mensagem, o quadro daquele número ganha uma <strong>borda verde</strong> e um contador. O total também aparece no ícone do app (Dock no Mac, barra de tarefas no Windows).</p>
+
+  <h3>Botões de cada quadro</h3>
+  <div class="tabela">
+    <table>
+      <thead><tr><th>Botão</th><th>O que faz</th></tr></thead>
+      <tbody>
+        <tr><td><span class="icone">−</span><span class="icone">+</span></td><td>Diminui ou aumenta o tamanho das letras e imagens daquele quadro.</td></tr>
+        <tr><td><span class="icone">⟳</span></td><td>Recarrega o número. Use se ele travar ou parar de atualizar.</td></tr>
+        <tr><td><span class="icone">⤢</span></td><td>Expande o número para a tela inteira. Clique de novo para voltar a ver todos.</td></tr>
+        <tr><td><span class="icone">⏻</span></td><td>Desconecta o número. Use só para trocar o número daquele quadro.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Atalhos de teclado</h3>
+  <p>No Mac use <span class="kbd">Cmd</span> e no Windows use <span class="kbd">Ctrl</span>:</p>
+  <ul>
+    <li><span class="kbd">Cmd/Ctrl + 1</span> a <span class="kbd">5</span>: expande o número correspondente.</li>
+    <li><span class="kbd">Cmd/Ctrl + 0</span>: volta a mostrar os 5 números.</li>
+  </ul>
+  <p>Enquanto um número está expandido, os outros continuam recebendo mensagens normalmente e o contador lá em cima continua atualizando.</p>
+
+  <h3>Notificações</h3>
+  <p>Na primeira vez, o computador pode perguntar se o Painel WhatsApp pode mostrar notificações. Clique em <strong>Permitir</strong> para ser avisado das mensagens novas mesmo com o app minimizado.</p>
+
+  <h2>5. Cuidados importantes</h2>
+  <ul>
+    <li><strong>Os celulares precisam entrar na internet de vez em quando.</strong> Se um celular ficar 14 dias sem internet, o WhatsApp desconecta aquele número e será preciso escanear o QR code de novo.</li>
+    <li><strong>Fechar o app não apaga nada.</strong> As conversas ficam no WhatsApp. Ao abrir de novo, tudo volta.</li>
+    <li><strong>Use o WhatsApp normalmente.</strong> O painel é o próprio WhatsApp Web oficial e não envia mensagens automáticas. As regras de uso do WhatsApp continuam valendo.</li>
+    <li><strong>Um computador por instalação.</strong> Cada computador precisa conectar os números pelo QR code. Cada número aceita até 4 dispositivos conectados ao mesmo tempo.</li>
+  </ul>
+
+  <h2>6. Se algo der errado</h2>
+  <div class="problema">
+    <b>O QR code aparece cortado</b>
+    <p>Clique no botão − do quadro ou expanda o número com ⤢ para escanear com mais espaço.</p>
+  </div>
+  <div class="problema">
+    <b>Um número pediu o QR code de novo</b>
+    <p>Ele foi desconectado pelo celular ou ficou muito tempo sem internet. Escaneie o QR code novamente, como no passo 3.</p>
+  </div>
+  <div class="problema">
+    <b>Um quadro está em branco ou travado</b>
+    <p>Clique em ⟳ para recarregar. Se não resolver, feche e abra o app.</p>
+  </div>
+  <div class="problema">
+    <b>Aparece "sem conexão"</b>
+    <p>Confira a internet do computador. O quadro tenta reconectar sozinho a cada 5 segundos.</p>
+  </div>
+  <div class="problema">
+    <b>Não chegam notificações</b>
+    <p>No Mac: Ajustes do Sistema → Notificações → Painel WhatsApp → ativar. No Windows: Configurações → Sistema → Notificações → Painel WhatsApp → ativar.</p>
+  </div>
+
+  <h2>7. Desinstalar</h2>
+  <p><strong>Windows:</strong> Configurações → Aplicativos → Painel WhatsApp → Desinstalar.<br>
+  <strong>Mac:</strong> arraste o Painel WhatsApp da pasta Aplicativos para o Lixo.</p>
+  <p>Para desconectar os números completamente, confira também no celular: WhatsApp → Dispositivos conectados → toque no computador → Desconectar.</p>
+
+  <div class="rodape">
+    <span class="logo-rankx" role="img" aria-label="RankX Digital"></span>
+    <div>Painel WhatsApp · versão 1.0<br>Desenvolvido por <strong>RankX Digital</strong></div>
+  </div>
+</div>
+
+</body>
+</html>
